@@ -29,10 +29,10 @@ public class Main {
 	}
 	
 	/**
-	   * This method generates a table of letter-pairing frequencies (for instance, n-a=28%) by reading data
-	   * from a .txt file that contains the data. The data is structured in a row format with each row containing
-	   * a new letter of the alphabet and a list of tuples. The tuples are structured in letter-frequency format.
-	   */
+	 * This method generates a table of letter-pairing frequencies (for instance, n-a=28%) by reading data
+	 * from a .txt file that contains the data. The data is structured in a row format with each row containing
+	 * a new letter of the alphabet and a list of tuples. The tuples are structured in letter-frequency format.
+	 */
 	private static void createTable() {
 		
 		String fileName = "letter_combo_frequencies.txt";
@@ -138,7 +138,7 @@ public class Main {
 	
 	/**
 	   * This method is used to generate the next letter of a word based off the previous letter and frequencies of letter pairings.
-	   * It is used in conjunction with the randomWord_FromData method.
+	   * It is used in conjunction with the generateWord method.
 	   * 
 	   * @param letter The previous letter in the sequence.
 	   * @return char This returns the next letter.
