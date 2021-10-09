@@ -8,6 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Driver file for the creation of random words.
+ * 
+ * @author BlTWISE
+ * @version 1.0
+ *
+ */
 public class Main {
 	
 	static Table table = new Table();
@@ -20,9 +27,11 @@ public class Main {
 			print(randomWord);
 		}
 		
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1000; i++) {
 			//Generate a random word that starts with v and is 3-5 characters in length
-			String randomWordWithDesignatedPrefixLetter = generateWord(3, 5, 'v');
+			String randomWord = generateWord(4, 5);
+			print(randomWord);
+			String randomWordWithDesignatedPrefixLetter = generateWord(5, 8, 'd', 'i', 's');
 			print(randomWordWithDesignatedPrefixLetter);
 		}
 
@@ -123,6 +132,81 @@ public class Main {
 		int lengthOfWord = randomInt(min-1, max-1);
 		String word = "";
 		char nextLetter = firstLetter;
+		word += nextLetter;
+		
+		for (int i = 0; i < lengthOfWord; i++) {
+			
+			nextLetter = returnNextLetter(nextLetter);
+			word += nextLetter;
+			
+		}
+		
+		return word;
+		
+	}
+	
+	/**
+	   * This method is used to generate random, likely-pronouncable English words based off frequency of letter pairings.
+	   * It uses a sample data set from StackOverflow to gather frequency data.
+	   * 
+	   * @param min The minimum length of the random word.
+	   * @param max The maximum length of the random word.
+	   * @param firstLetter An optional parameter that specifies the first letter of the word.
+	   * @param secondLetter An optional parameter that specifies the second letter of the word.
+	   * @return String This returns the random word.
+	   */
+	public static String generateWord(int min, int max, char firstLetter, char secondLetter) {
+		
+		if (!tableCreated) {
+			createTable();
+			tableCreated = true;
+		}
+		
+		//Based off https://english.stackexchange.com/questions/110576/what-are-the-most-common-letters-used-in-pairs-after-others-in-the-english-alpha
+		int lengthOfWord = randomInt(min-2, max-2);
+		String word = "";
+		char nextLetter = firstLetter;
+		word += nextLetter;
+		nextLetter = secondLetter;
+		word += nextLetter;
+		
+		for (int i = 0; i < lengthOfWord; i++) {
+			
+			nextLetter = returnNextLetter(nextLetter);
+			word += nextLetter;
+			
+		}
+		
+		return word;
+		
+	}
+	
+	/**
+	   * This method is used to generate random, likely-pronouncable English words based off frequency of letter pairings.
+	   * It uses a sample data set from StackOverflow to gather frequency data.
+	   * 
+	   * @param min The minimum length of the random word.
+	   * @param max The maximum length of the random word.
+	   * @param firstLetter An optional parameter that specifies the first letter of the word.
+	   * @param secondLetter An optional parameter that specifies the second letter of the word.
+	   * @param thirdLetter An optional parameter that specifies the third letter of the word.
+	   * @return String This returns the random word.
+	   */
+	public static String generateWord(int min, int max, char firstLetter, char secondLetter, char thirdLetter) {
+		
+		if (!tableCreated) {
+			createTable();
+			tableCreated = true;
+		}
+		
+		//Based off https://english.stackexchange.com/questions/110576/what-are-the-most-common-letters-used-in-pairs-after-others-in-the-english-alpha
+		int lengthOfWord = randomInt(min-3, max-3);
+		String word = "";
+		char nextLetter = firstLetter;
+		word += nextLetter;
+		nextLetter = secondLetter;
+		word += nextLetter;
+		nextLetter = thirdLetter;
 		word += nextLetter;
 		
 		for (int i = 0; i < lengthOfWord; i++) {
